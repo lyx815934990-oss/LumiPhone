@@ -29,19 +29,9 @@ async function copyDirRecursive(from: string, to: string) {
 
 // 统一使用相对路径，避免在 Vercel 根域名和 GitHub Pages 子路径下资源 404
 export default defineConfig({
-<<<<<<< HEAD
-  plugins: [react()],
-  // 相对 base，既适用于 Vercel 根路径，也适用于 GitHub Pages 子路径
-  base: './',
-  // ★ 关键：构建输出到 docs，GitHub Pages 已设置 main 分支 /docs 作为站点根目录
-  build: {
-    outDir: 'docs'
-  },
-=======
   // GitHub Pages 通常是子路径部署：import.meta.env.BASE_URL 需要能正确反映子路径
   // 本地开发默认 '/'；上线在 CI 里设置 VITE_BASE_URL=/wodexiaoshouji/
   base: (process.env.VITE_BASE_URL || '/').replace(/\/?$/, '/'),
->>>>>>> b41cdaf (update)
   server: {
     host: '0.0.0.0', // 监听所有网卡
     port: 5173, // 保持原端口或修改为其他
